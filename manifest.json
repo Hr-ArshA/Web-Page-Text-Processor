@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Page Text Processor | PhiloLearn",
+  "version": "0.0.96",
+  "description": "Translate, summarize, and process page content using OpenRouter AI API",
+  "permissions": [
+  "activeTab",
+  "scripting", 
+  "storage",
+  "downloads"
+  ],
+  "host_permissions": [
+    "https://openrouter.ai/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "512": "bot.png"
+  }
+}

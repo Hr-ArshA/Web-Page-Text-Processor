@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      font-family: Vazirmatn, sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #d3d3d3;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 10px;
+      border-style: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    button:hover {
+      background-color: #a9a9a9;
+    }
+    #error, #status {
+      margin-top: 10px;
+      text-align: right;
+    }
+    #error {
+      color: red;
+      word-wrap: break-word;
+      display: none;
+    }
+    #status {
+      color: #666;
+    }
+    #result {
+      margin-top: 15px;
+      max-height: 300px;
+      overflow-y: auto;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+    #settings {
+      margin-bottom: 15px;
+    }
+    #apiKey, #modelSelect {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .api-key-manager {
+      margin-bottom: 15px;
+    }
+    .api-key-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .saved-keys {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .delete-key {
+      background-color: #ff4444;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .delete-key:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div id="settings">
+    <div class="api-key-manager">
+      <select id="savedApiKeys" class="saved-keys">
+        <option value="">Select a saved API key...</option>
+      </select>
+      <div class="api-key-container">
+        <input type="text" id="apiKey" placeholder="OpenRouter API Key" />
+        <button id="saveApiKey">ذخیره کلید</button>
+      </div>
+    </div>
+    <select id="modelSelect">
+      <option value="meta-llama/llama-3.1-8b-instruct:free">Llama 3.1 8B</option>
+      <option value="meta-llama/llama-3.1-70b-instruct:free">Llama 3.1 70B</option>
+      <option value="meta-llama/llama-3.1-405b-instruct:free">Llama 3.1 405B</option>
+    </select>
+  </div>
+  <div class="button-group">
+    <button id="translatePageBtn">ترجمه صفحه</button>
+    <button id="translateSelectionBtn">ترجمه انتخاب</button>
+  </div>
+  <div class="button-group">
+    <button id="summaryPageBtn">خلاصه صفحه</button>
+    <button id="summarySelectionBtn">خلاصه انتخاب</button>
+  </div>
+  <div class="button-group">
+    <button id="translateSummaryPageBtn">ترجمه و خلاصه صفحه</button>
+    <button id="translateSummarySelectionBtn">ترجمه و خلاصه انتخاب</button>
+  </div>
+  <div>
+    <button id="saveMarkdownBtn" style="width: 100%; margin-top: 10px;">ذخیره به عنوان مارک‌داون</button>
+  </div>
+  <div id="status"></div>
+  <div id="error"></div>
+  <div id="result"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
